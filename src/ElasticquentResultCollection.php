@@ -47,6 +47,7 @@ class ElasticquentResultCollection extends \Illuminate\Database\Eloquent\Collect
      */
     public function setMeta(array $meta)
     {
+        $this->scroll_id = isset($meta['_scroll_id']) ? $meta['_scroll_id'] : null;
         $this->took = isset($meta['took']) ? $meta['took'] : null;
         $this->timed_out = isset($meta['timed_out']) ? $meta['timed_out'] : null;
         $this->shards = isset($meta['_shards']) ? $meta['_shards'] : null;
